@@ -13,5 +13,10 @@ namespace ProjectPortal.Controllers
         {
             return View();
         }
+
+        public ActionResult AngularApp2()
+        {
+            return View();
+        }
     }
 }
