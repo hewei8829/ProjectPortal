@@ -106,12 +106,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\API.gif" />
+    <Content Include="Images\Azure.png" />
+    <Content Include="Images\DataBase.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Front-End.png" />
+    <Content Include="Images\InterviewCode.jpg" />
+    <Content Include="Images\Neighborhood.jpg" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
