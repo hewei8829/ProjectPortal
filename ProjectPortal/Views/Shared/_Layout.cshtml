@@ -45,12 +45,20 @@
 
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="">Azure</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Azure<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="~/Azure/WebRole">WebRole</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">WorkRole</a></li>
+                                    @*<li class="dropdown-header">Nav header</li>*@
+                                </ul>
+                            </li>
                             <li><a href="#">AWS</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FrontEnd<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="~/Home/angularapp2">Angular</a></li>
+                                    <li><a href="~/FrontEnd/AngularJs">Angular</a></li>
                                     <li><a href="#">BootStrap</a></li>
                                     <li><a href="#">JQuery</a></li>
                                     <li role="separator" class="divider"></li>
@@ -61,6 +69,7 @@
                             <li><a href="#">DataBase</a></li>
                             <li><a href="#">InterviewCode</a></li>
                             <li><a href="#">Projects</a></li>
+                            <li><a href="#">MyGitHub</a></li>
                             @*<li><a href="#">HelpInNeighborhood </a></li>
                             <li><a href="#">ApiManagement</a></li>*@
                         </ul>
