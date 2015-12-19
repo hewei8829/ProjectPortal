@@ -19,4 +19,20 @@ namespace ProjectPortal.Controllers
             return View();
         }
     }
+
+    public class AzureController : Controller
+    {
+        public ActionResult WebRole()
+        {
+            return View();
+        }
+    }
+
+    public class FrontEndController : Controller
+    {
+        public ActionResult AngularJs()
+        {
+            return View();
+        }
+    }
 }
