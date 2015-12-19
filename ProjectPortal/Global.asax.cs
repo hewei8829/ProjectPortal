@@ -16,6 +16,7 @@ namespace ProjectPortal
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalFilters.Filters.Add(new HandleErrorAttribute());
 
         }
     }
