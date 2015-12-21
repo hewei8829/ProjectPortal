@@ -34,5 +34,11 @@ namespace ProjectPortal.Controllers
         {
             return View();
         }
+
+        public ActionResult Material()
+        {
+            return View();
+        }
+
     }
 }

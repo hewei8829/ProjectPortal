@@ -158,6 +158,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Azure\WebRole.cshtml" />
     <Content Include="Views\FrontEnd\AngularJs.cshtml" />
+    <Content Include="Views\FrontEnd\Material.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
