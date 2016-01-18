@@ -6,17 +6,13 @@ using System.Web.Mvc;
 
 namespace ProjectPortal.Controllers
 {
-    public class HomeController : Controller
+    public class AzureController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult AngularApp2()
+        public ActionResult WebRole()
         {
             return View();
         }
     }
+
+ 
 }

@@ -13,11 +13,22 @@ namespace ProjectPortal
     {
         protected void Application_Start()
         {
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             GlobalFilters.Filters.Add(new HandleErrorAttribute());
 
         }
+
+        //public void ConfigureAuth(IAppBuilder app)
+        //{
+        //    app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+        //        new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+        //        {
+        //            Audience = ConfigurationManager.AppSettings["ida:Audience"],
+        //            Tenant = ConfigurationManager.AppSettings["ida:Tenant"]
+        //        });
+        //}
     }
 }

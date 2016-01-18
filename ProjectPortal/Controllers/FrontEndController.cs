@@ -6,17 +6,17 @@ using System.Web.Mvc;
 
 namespace ProjectPortal.Controllers
 {
-    public class HomeController : Controller
+    public class FrontEndController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        public ActionResult AngularJs()
         {
             return View();
         }
 
-        public ActionResult AngularApp2()
+        public ActionResult Material()
         {
             return View();
         }
+
     }
 }
