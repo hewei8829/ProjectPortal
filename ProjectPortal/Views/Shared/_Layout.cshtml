@@ -11,6 +11,7 @@
     <title>Wei He Personal Blog</title>
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/costumed.css" />
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -69,7 +70,12 @@
                             </li>
                             <li><a href="#">DataBase</a></li>
                             <li><a href="~/InterviewCode/LeetCode">InterviewCode</a></li>
-                            <li><a href="#">Projects</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://vandealshare.azurewebsites.net/">VanShare</a></li>                                 
+                                </ul>
+                            </li>
                             <li><a href="https://github.com/hewei8829">MyGitHub</a></li>
                             @*<li><a href="#">HelpInNeighborhood </a></li>
                             <li><a href="#">ApiManagement</a></li>*@

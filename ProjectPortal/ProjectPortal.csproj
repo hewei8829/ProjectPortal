@@ -148,6 +148,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\costumed.css" />
     <Content Include="Images\API.gif" />
     <Content Include="Images\Azure.png" />
     <Content Include="Images\DataBase.jpg">
@@ -162,6 +163,9 @@
     <Content Include="Images\Front-End.png" />
     <Content Include="Images\InterviewCode.jpg" />
     <Content Include="Images\Neighborhood.jpg" />
+    <Content Include="Images\VanDeal11_25_2016.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
