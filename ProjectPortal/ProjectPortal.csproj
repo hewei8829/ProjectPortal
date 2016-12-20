@@ -165,11 +165,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\Front-End.png" />
+    <Content Include="Images\head.jpg" />
     <Content Include="Images\InterviewCode.jpg" />
     <Content Include="Images\Neighborhood.jpg" />
     <Content Include="Images\VanDeal11_25_2016.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\VisualStudioCodeCheetSheet.jpg" />
     <Content Include="Images\vscode.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -207,6 +209,7 @@
     <Compile Include="Controllers\FrontEndController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterviewCodeController.cs" />
+    <Compile Include="Controllers\ToolsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,7 +227,7 @@
     <Content Include="Views\Azure\WebRole.cshtml" />
     <Content Include="Views\FrontEnd\AngularJs.cshtml" />
     <Content Include="Views\FrontEnd\Material.cshtml" />
-    <Content Include="Views\InterviewCode\LeetCode.cshtml" />
+    <Content Include="Views\Tools\VisualStudioCodeView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
