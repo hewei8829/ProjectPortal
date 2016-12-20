@@ -1,6 +1,17 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<script>
+    $(document).ready(function () {
+        $('#CheetSheet').click(function () {
+            $(this).css('width', function (_, cur) {
+                return cur === '500px' ? '100%' : '500px'
+            });
+        });
+    });
+</script>
+
 <div id="blog" class="row col-md-9">
     <div class="col-md-12 blogShort">
         <h1>Welcome Back</h1>
@@ -28,7 +39,7 @@
     <div class="col-md-12 blogShort">
 
         <h2>Visual Studio Code Cheet Sheet</h2>
-        <img src="~/Images/VisualStudioCodeCheetSheet.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="400" width="500">
+        <img src="~/Images/VisualStudioCodeCheetSheet.jpg" id="CheetSheet" class="pull-left img-responsive thumb margin10 img-thumbnail" height="400" width="500">
         <article>
             <p>
               <h5>Ok. Here is a cheetsheet for visual studo code. Please save it if you need :) </h5>
@@ -154,6 +165,10 @@
         <div>
             <header style="text-decoration:underline;font-style:italic">v0.8.023</header>
             <p>Update Viusal studio cheet sheet &amp; html blog</p>
+        </div>
+        <div>
+            <header style="text-decoration:underline;font-style:italic">v0.8.024</header>
+            <p>Update the packages &amp; enlarge the image</p>
         </div>
 
     </div>
