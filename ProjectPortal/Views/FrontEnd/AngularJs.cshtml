@@ -1,49 +1,149 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*<style type="text/css">
-        div {
-            background-color: gray !important;
-        }
-        /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
-    </style>*@
-
-<body ng-app>
-
-    <div class="container marketing">
-        <div class="tabbable">
-            <ul class="nav  nav-pills  nav-stacked col-md-3">
-                <li class="active" role="presentation"><a href="#lA" data-toggle="tab">Section 1</a></li>
-                <li><a href="#lB" data-toggle="tab">Section 2</a></li>
-                <li><a href="#lC" data-toggle="tab">Section 3</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane fade in active" id="lA">
-                    <figure class="highlight">
-                        <pre>{{Data}}</pre>
-                    </figure>
-                    <p>Section A.</p>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption caption-green">
+                    <i class="glyphicon glyphicon-knight"></i>
+                    <span class="caption-subject text-uppercase"> AngularJs</span>
+                    <span class="caption-helper">Learnings...</span>
                 </div>
-                <div class="tab-pane fade" id="lB">
-                    <figure class="highlight">
-                        <pre> Some introducion.</pre>
-                    </figure>
-                    <p>Section B.</p>
-                </div>
-                <div class="tab-pane fade" id="lC">
-                    <figure class="highlight">
-                        <pre>{{Data}}</pre>
-                    </figure>
-                    <p>Section C.</p>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#module" data-toggle="tab">
+                            Basic Angular Sample
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#overview" data-toggle="tab">
+                            Framework Overview
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#http" data-toggle="tab">
+                            Http Service
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#others" data-toggle="tab">
+                            Others
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="module">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4>AngularJs Sample</h4>
+                                <p> Here is a sample I wrote. </p>
+                                <div ng-app="demoApp" ng-controller="demoCtrl">
+                                    <p style="font-style:italic; color:blue">This shows the basic bindings from ng-model.</p>
+                                    First Name: <input type="text" ng-model="firstName"><br>
+                                    Last Name: <input type="text" ng-model="lastName"><br>
+                                    Full Name: {{firstName + " " + lastName}} <br>
+
+                                    <p style="font-style:italic; color:blue">This shows how to can get the value from the factory function.</p>
+                                    {{defaultName.name + " at " + defaultName.country}}
+
+                                    <p style="font-style:italic; color:blue">This shows ng-repeat directive. </p>
+                                    <ul> <li ng-repeat="name in nameList"> {{name.name + " at " + name.country}}</li></ul>
+
+                                    <p style="font-style:italic; color:blue">This show a factory function can have a input parameter.</p>
+                                    {{outputName}}
+
+                                    <p style="font-style:italic; color:blue"> This show How you can Initial and how to call a controller method.</p>
+                                    <div ng-init="Init(6)">
+                                        <button ng-click="Increase()">Increase</button>
+                                        <button ng-click="Decrease()">Decrease</button>
+                                        <p>The button has been clicked {{count}} times.</p>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    var app = angular.module('demoApp', [])
+                                        .factory('demoFactory', function () {
+                                            var factory = {};
+                                            var nameAndCountryList = [{ name: 'Alpha', country: 'China' },
+                                                { name: 'Beta', country: 'US' },
+                                                { name: 'Gamma', country: 'Canada' }];
+
+                                            factory.getDefaultName = function () {
+                                                return nameAndCountryList[0];
+                                            };
+
+                                            factory.getNameList = function () {
+                                                return nameAndCountryList;
+                                            };
+
+                                            factory.returnInputName = function (input) {
+                                                return input + " Come from output";
+                                            };
+                                            return factory;
+                                        })
+                                    .controller('demoCtrl', function ($scope, demoFactory) {
+                                        $scope.firstName = "Wei";
+                                        $scope.lastName = "He";
+                                        $scope.defaultName = demoFactory.getDefaultName();
+                                        $scope.nameList = demoFactory.getNameList();
+
+                                        $scope.outputName = demoFactory.returnInputName("MyName");
+                                        $scope.count = 1;
+                                        $scope.Init = function (initNum) {
+                                            $scope.count = initNum;
+                                        };
+                                        $scope.Increase = function () {
+                                            $scope.count++;
+                                        };
+                                        $scope.Decrease = function () {
+                                            $scope.count--;
+                                        };
+                                    });
+                                </script>
+                            </div>
+                            <div class="col-md-8">
+                                <script src="https://gist.github.com/hewei8829/6f916abf5fcf1f585706e38fe697dac5.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="overview">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>Here is a overview of the angular framework.Some of the important items in the framework.</p>
+                                <ul>
+                                    <li><a href="http://www.w3schools.com/angular/angular_modules.asp">Module</a></li>
+                                    <li><a href="http://www.w3schools.com/angular/angular_directives.asp">Directives</a>
+                                    <li><a href="http://www.w3schools.com/angular/angular_controllers.asp">Controllers</a></li>
+                                    <li><a href="http://www.w3schools.com/angular/angular_services.asp">Services</a></li>
+                                    <li><a href="http://www.w3schools.com/angular/angular_scopes.asp">Scopes</a></li>
+                                    <li><a href="http://www.w3schools.com/angular/angular_http.asp">Http</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <img src="~/Images/AngularFramework.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="http">
+                        <h4>Tab 2 Content</h4>
+                        <p>Http is a very important service. I will make a sample template for this. Comming Soon.</p>
+                    </div>
+                    <div class="tab-pane" id="others">
+                        <p>I will add some resources and readings here. Comming Soon.</p>
+
+                    </div>
                 </div>
             </div>
-        </div> <!-- /tabbable -->
-        @*<figure class="highlight">
-                <pre>{{Data}}</pre>
-            </figure>
 
-
-            <p>Nothing here {{'yet' + '!'}}</p>*@
+        </div>
+        <!-- END Portlet PORTLET-->
     </div>
 
-</body>
+</div>
+
