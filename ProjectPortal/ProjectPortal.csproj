@@ -208,6 +208,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Images\dotNetCoreError.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Front-End.png" />
     <Content Include="Images\head.jpg" />
     <Content Include="Images\InterviewCode.jpg" />
@@ -244,6 +247,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\christmasSnow.js" />
+    <Content Include="Scripts\Http\commentService.js" />
+    <Content Include="Scripts\Http\ApiCallService.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />

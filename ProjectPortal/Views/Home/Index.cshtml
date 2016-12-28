@@ -2,7 +2,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<script>
+
+
+<div ng-app="homeIndexPageApp" ng-controller="CommentCtrl" ng-init="init()">
+    <script>
     //Enlarge pictures.
     $(document).ready(function () {
         $('#CheetSheet').click(function () {
@@ -15,341 +18,398 @@
     $(document).ready(function () {
         $("#blog1_comment_tag").click(function () {
             $("#blog1_comment_content").toggle();
+            return false;
         })
     });
-</script>
+    </script>
+    <div id="blog" class="row col-md-9">
+        <div class="col-md-12 blogShort" id ="826073ec-0e32-4c40-b010-f8c0e417aa1b" >
+            <h1>Welcome back!</h1>
+            <article>
+                <p>
+                    I changed my personal website from www.weihecareer.com to <a href="http://www.weiheblog.com">www.weiheblog.com</a>. I will constantly update this website from now. Hopefully update at least 2 times a week.
+                </p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
+                <li>|</li>
+                <li><a href="#" id="blog1_comment_tag"><i class="glyphicon glyphicon-comment"></i> {{numberOfCommnets}} comments</a></li>
 
-
-
-<!-- Contenedor Principal -->
-<div id="blog" class="row col-md-9">
-    <div class="col-md-12 blogShort">
-        <h1>Merry Christmas!!</h1>
-        @*<img src="#" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">*@
-        <article>
-            <p>
-                I changed my personal website from www.weihecareer.com to <a href="http://www.weiheblog.com">www.weiheblog.com</a>. I will constantly update this website from now. Hopefully update at least 2 times a week.
-            </p>
-        </article>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 3 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-            </li>
-        </ul>
-        @*<a class="btn btn-blog pull-right marginBottom10" href="#">READ MORE</a>*@
-    </div>
-    <div class="col-md-12 blogShort">
-        <h2>Frontend Tools &amp; useful websites</h2>
-        <ul>
-            <li><a href="http://bootsnipp.com/">bootsipp.com</a><br /><p>It's a very good bootstrap template website. People are sharing their works here.</p></li>
-            <li><a href="https://codepen.io/">codepen.io.com</a><br /><p>This is also a template website. A lot of animation template.</p></li>
-            <li><a href="http://getbootstrap.com/components/">bootstrap components</a><br /><p>Offical bootstrap website. Check as document.</p></li>
-            <li><a href="http://fontawesome.io/icons/">fontawesome icon</a><br /><p>If you refer fontawesome icons. Check this.</p></li>
-            <li><a href="https://jsfiddle.net/">jsfiddle.net</a><br /><p>Check your front end output using this website.</p></li>
-            <li><a href="https://startbootstrap.com/">startbootstrap.com</a>More templates can be found here.</li>
-            <li><a href="http://bootdey.com/">bootdey.com</a>Ok. One more template website here.</li>
-        </ul>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/23/2016</span></li>
-            <li>|</li>
-            <li><a href="#" id="blog1_comment_tag"><i class="glyphicon glyphicon-comment"></i> 3 comments</a></li>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">Frontend</a></span>
-            </li>
-        </ul>
-        <div class="panel panel-white post panel-shadow" id="blog1_comment_content">
-            <div class="post-footer">
-                <ul class="comments-list">
-                    <li class="comment">
-                        <a class="pull-left" href="#">
-                            <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-                        </a>
-                        <div class="comment-body">
-                            <div class="comment-heading">
-                                <h4 class="user">Wei He</h4>
-                                <h5 class="time">5 minutes ago</h5>
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                </li>
+            </ul>
+            <div class="panel panel-white post panel-shadow" style="display:none" id="blog1_comment_content">
+                <div class="post-footer">
+                    <ul class="comments-list">
+                        <li class="comment" ng-repeat="comment in commentSection.BlogCommentList">
+                            <a class="pull-left" href="#">
+                                <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+                            </a>
+                            <div class="comment-body">
+                                <div class="comment-heading">
+                                    <h4 class="user">{{comment.UserName}}</h4>
+                                    <h5 class="time">{{comment.CommentTime}}</h5>
+                                </div>
+                                <p>{{comment.CommentContent}}</p>
                             </div>
-                            <p>Hello!</p>
+                            @*<ul class="comments-list">
+                                <li class="comment" ng-repeat="subComment in comment.SubBlogCommentList">
+                                    <a class="pull-left" href="#">
+                                        <img class="avatar" src="http://bootdey.com/img/Content/user_2.jpg" alt="avatar">
+                                    </a>
+                                    <div class="comment-body">
+                                        <div class="comment-heading">
+                                            <h4 class="user">{{subComment.UserName}}</h4>
+                                            <h5 class="time">{{subComment.CommentTime}}</h5>
+                                        </div>
+                                        <p>{{subComment.CommentContent}}</p>
+                                    </div>
+                                </li>
+                            </ul>*@
+                        </li>
+                    </ul>
+                    <div class="form-group comment-input" style="padding:10px 10px 10px 0px">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">Nick Name</label>
+                                <input type="text" class="form-control" id="InputName" ng-model="inputUserName" placeholder="wei he">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">Email</label>
+                                <input type="email" class="form-control" id="InputEmail" ng-model="inputUserEmail" placeholder="me@weiheblog.com">
+                            </div>
+                        </form>
+                        <div style="padding:10px 0px 10px 0px">
+                            <textarea class="form-control" rows="5" id="comment" ng-model="inputCommentContent" placeholder="comment"></textarea>
                         </div>
-                        <ul class="comments-list">
-                            <li class="comment">
-                                <a class="pull-left" href="#">
-                                    <img class="avatar" src="http://bootdey.com/img/Content/user_2.jpg" alt="avatar">
-                                </a>
-                                <div class="comment-body">
-                                    <div class="comment-heading">
-                                        <h4 class="user">Cuicui Lu</h4>
-                                        <h5 class="time">3 minutes ago</h5>
-                                    </div>
-                                    <p>Hello!</p>
-                                </div>
-                            </li>
-                            <li class="comment">
-                                <a class="pull-left" href="#">
-                                    <img class="avatar" src="http://bootdey.com/img/Content/user_2.jpg" alt="avatar">
-                                </a>
-                                <div class="comment-body">
-                                    <div class="comment-heading">
-                                        <h4 class="user">Jessica</h4>
-                                        <h5 class="time">3 minutes ago</h5>
-                                    </div>
-                                    <p>Hello</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <button ng-click="AddComment()" type="submit" class="btn btn-success green pull-right"><i class="fa fa-edit"></i>Submit</button>
+                    </div>
+
+                </div>
+            </div>
+
+            @*<a class="btn btn-blog pull-right marginBottom10" href="#">READ MORE</a>*@
+        </div>
+        <div class="col-md-12 blogShort">
+            <h2> Comment is enabled now :)</h2>
+            <article>
+              <p> I got my comment function enabled :). Backend is using .net web api. For detail api information, you can check <a href="http://weiheblogservice.azurewebsites.net/swagger/ui/index#/Comments">here</a>. Please don't try to hack this. It it not protected by any authentication method yet. </p>
+                <p> Backend database is using Azure table storage. It is much cheap then using SQL. For this small project, performance should be fine. For details about azure table storage, you can check <a href="https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-tables">here</a>.</p>
+                <p> I will share my Azure storage repository code later. Or you can check in my git hub site.</p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/26/2016</span></li>
+                <li>|</li>
+                <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 0 comments</a></li>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">.net core</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+
+            <h2> .net Core Web API &amp; nugget issues.</h2>
+            <img src="~/Images/dotNetCoreError.PNG" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="100" width="200">
+            <article>
+                <p> I am trying to write my service side API for my comments. I was using .net core web api. Dotnet core 1.0 is the new platform announced around June 2016. For those who don't know this framework. Here is the <a href="https://blogs.msdn.microsoft.com/dotnet/2016/06/27/announcing-net-core-1-0/">link</a>.  </p>
+                <p> I would believe why we have this new platform is that it is a cross-platform and open source one. </p>
+                <h4>But I decide not to use this platform at this time.</h4>
+                <br />
+                <p>Here are issues I have faced in only one day useage.</p>
+                <ul>
+                    <li>
+                        <p>microsoft.aspnet.webapi.cors is not working. It is not compatiable with DNX Core 5.0. You can fix this by following this <a href="https://docs.microsoft.com/en-us/aspnet/core/security/cors">link</a>. Maybe you need to do something like this as well. </p>
+                        <p>
+                            options.AddPolicy("AllowSpecificOrigin",
+                            builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+                        </p>
+                    </li>
+                    <li>
+                        <p>MicrosoftAuzre.Storage is not working. Same issue here. It is not compatiable with DNX Core 5.0.You can fix this by following this <a href="http://stackoverflow.com/questions/36210500/unable-to-add-windowsazure-storage-dependency-to-net-core-asp-net-5-class-l">link</a>. However, you will not be able to upgrade to latest nuget package.</p>
+                    </li>
+                    <li>
+                        <p>As I have metioned above. You can not upgrade to latest nugget packages. It is not only for MicrosoftAzure.storage. I am trying to upgrade some other nuggets and it just not working now.</p>
                     </li>
                 </ul>
-                <div class="form-group comment-input" style="padding:10px 10px 10px 0px">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="exampleInputName2">Nick Name</label>
-                            <input type="text" class="form-control" id="InputName" placeholder="wei he">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail2">Email</label>
-                            <input type="email" class="form-control" id="InputEmail" placeholder="me@weiheblog.com">
-                        </div>
-                    </form>
-                    <div style="padding:10px 0px 10px 0px">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="comment"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success green pull-right"><i class="fa fa-edit"></i>Submit</button>
-                </div>
+                <p> It looks like .net core might need a new nugget url. The mix of DNX 4.5.1 &amp; DNX Core 5.0 is painful for me. I will come back to .net core when it is more mature. But not now.</p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/25/2016</span></li>
+                <li>|</li>
+                <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 0 comments</a></li>
 
-            </div>
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">.net core</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+            <h2>Frontend Tools &amp; useful websites</h2>
+            <ul>
+                <li><a href="http://bootsnipp.com/">bootsipp.com</a><br /><p>It's a very good bootstrap template website. People are sharing their works here.</p></li>
+                <li><a href="https://codepen.io/">codepen.io.com</a><br /><p>This is also a template website. A lot of animation template.</p></li>
+                <li><a href="http://getbootstrap.com/components/">bootstrap components</a><br /><p>Offical bootstrap website. Check as document.</p></li>
+                <li><a href="http://fontawesome.io/icons/">fontawesome icon</a><br /><p>If you refer fontawesome icons. Check this.</p></li>
+                <li><a href="https://jsfiddle.net/">jsfiddle.net</a><br /><p>Check your front end output using this website.</p></li>
+                <li><a href="https://startbootstrap.com/">startbootstrap.com</a><br /><p>More templates can be found here.</p></li>
+                <li><a href="http://bootdey.com/">bootdey.com</a><br /><p>Ok. One more template website here.</p></li>
+            </ul>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/23/2016</span></li>
+                <li>|</li>
+                <li><i class="glyphicon glyphicon-comment"></i> 0 comments</li>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">Frontend</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+            <h2>Lyft Micro-Service design </h2>
+            <iframe class="pull-left img-responsive thumb margin10 img-thumbnail" height="150" width="200" src="https://www.youtube.com/embed/sjpP2ynkCbo" frameborder="0" allowfullscreen></iframe>
+            <p> I personally love this proxy &amp; discovery service design. However, it might only good for enterprise projects. It is costly.</p>
+            <p> Also <a href="https://aws.amazon.com/this-is-my-architecture/">here</a> is a good set of architecture design videos. Take a look. </p>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/22/2016</span></li>
+                <li>|</li>
+                <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">Design Architecture</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+
+            <h2>AngularJs and React Basics Update2</h2>
+            <img src="~/Images/Angular_React.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="100" width="200">
+            <article>
+                <p>
+                    Here I have some basic Learnings for angularJs.
+                </p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/22/2016</span></li>
+                <li>|</li>
+                <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">AngularJs &amp; ReactJs</a></span>
+                </li>
+            </ul>
+            <a class="btn btn-blog pull-right marginBottom10" href="~/FrontEnd/AngularJs">READ MORE</a>
+        </div>
+        <div class="col-md-12 blogShort">
+
+            <h2>Visual Studio Code Cheet Sheet</h2>
+            <img src="~/Images/VisualStudioCodeCheetSheet.jpg" id="CheetSheet" class="pull-left img-responsive thumb margin10 img-thumbnail" height="400" width="500">
+            <article>
+                <p>
+                    <h5>Ok. Here is a cheetsheet for visual studo code. Please save it if you need :) </h5>
+                </p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/19/2016</span></li>
+                <li>|</li>
+                <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">Visual Studio Code</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+
+            <h2>Visual Studio Code Working with HTML</h2>
+            <img src="~/Images/vscode.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="120" width="120">
+            <article>
+                <p>
+                    I am having a pain point when try to develop .Net things one my Macbook air. Though we have the visual studio release for Mac,it is having some package issues here and there.
+                    Also as some of my friends tend to use light weight editor like sublime &amp; Vim. However, personally I still love a IDE like Viusal studio. I'd like to learn some light weight editor or IDE.
+                    I think visual studio code might be a good compromise for me. It is a editor &amp; IDE.(kinda of...) Here is my first learning about visual studio code.
+                </p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
+                <li>|</li>
+                <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">Visual Studio Code</a></span>
+                </li>
+            </ul>
+            <a class="btn btn-blog pull-right marginBottom10" href="~/Tools/VisualStudioCodeView">READ MORE</a>
+        </div>
+        <div class="col-md-12 blogShort">
+
+            <h2>AngularJs and React Basics</h2>
+            <img src="~/Images/Angular_React.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="100" width="200">
+            <article>
+                <p>
+                    Trying to find and learn a good front end framework. Looking into Angular &amp; React.
+                    After running serval comparsion articles <a href="https://www.airpair.com/angularjs/posts/angular-vs-react-the-tie-breaker">here</a>
+                    and <a href="https://smashingboxes.com/blog/choosing-a-front-end-framework-angular-ember-react/">here</a>. I decide to learn both of them.
+                    To me, angular wil be used as data binding &amp; and view routings. React will be a UI library for me as it is not a framework.
+                    Here is an article talking about the combination. <a href="https://blog.logentries.com/2016/02/combining-angularjs-and-reactjs-for-better-applications/">Using both AngularJs and React</a>.
+                    Angular &amp; React will be a set of blogs that records my learrning thre.
+                </p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
+                <li>|</li>
+                <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">AngularJs &amp; ReactJs</a></span>
+                </li>
+            </ul>
+            <a class="btn btn-blog pull-right marginBottom10" href="~/FrontEnd/AngularJs">READ MORE</a>
+        </div>
+        <div class="col-md-12 blogShort">
+
+            <h2>AngularJs and React Learning</h2>
+            <iframe class="pull-left img-responsive thumb margin10 img-thumbnail" height="150" width="200" src="https://www.youtube.com/embed/i9MHigUZKEM" frameborder="0" allowfullscreen></iframe>
+            <article>
+                <p>
+                    Here is good AngularJs Introduction Video from Dan Vahlin. I will add samples <a href="#">here</a> as well. Aslo Dan Wahlin is having a good blog <a href="https://weblogs.asp.net/dwahlin">here</a>.
+                </p>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
+                <li>|</li>
+                <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+
+                <li>|</li>
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">AngularJs &amp; ReactJs</a></span>
+                </li>
+            </ul>
+            <a class="btn btn-blog pull-right marginBottom10" href="~/FrontEnd/AngularJs">READ MORE</a>
         </div>
     </div>
-
-    <div class="col-md-12 blogShort">
-        <h2>Lyft Micro-Service design </h2>
-        <iframe class="pull-left img-responsive thumb margin10 img-thumbnail" height="150" width="200" src="https://www.youtube.com/embed/sjpP2ynkCbo" frameborder="0" allowfullscreen></iframe>
-        <p> I personally love this proxy &amp; discovery service design. However, our organization is not on this track. :(</p>
-        <p> Also <a href="https://aws.amazon.com/this-is-my-architecture/">here</a> is a good set of architecture design videos. Take a look. </p>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/22/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">Design Architecture</a></span>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-12 blogShort">
-
-        <h2>AngularJs and React Basics Update2</h2>
-        <img src="~/Images/Angular_React.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="100" width="200">
-        <article>
-            <p>
-                Here I have some basic Learning for angularJs.
-            </p>
-        </article>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/22/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">AngularJs &amp; ReactJs</a></span>
-            </li>
-        </ul>
-        <a class="btn btn-blog pull-right marginBottom10" href="~/FrontEnd/AngularJs">READ MORE</a>
-    </div>
-    <div class="col-md-12 blogShort">
-
-        <h2>Visual Studio Code Cheet Sheet</h2>
-        <img src="~/Images/VisualStudioCodeCheetSheet.jpg" id="CheetSheet" class="pull-left img-responsive thumb margin10 img-thumbnail" height="400" width="500">
-        <article>
-            <p>
-                <h5>Ok. Here is a cheetsheet for visual studo code. Please save it if you need :) </h5>
-            </p>
-        </article>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/19/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">Visual Studio Code</a></span>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-12 blogShort">
-
-        <h2>Visual Studio Code Working with HTML</h2>
-        <img src="~/Images/vscode.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="120" width="120">
-        <article>
-            <p>
-                I am having a pain point when try to develop .Net things one my Macbook air. Though we have the visual studio release for Mac,it is having some package issues here and there.
-                Also as some of my friends tend to use light weight editor like sublime &amp; Vim. However, personally I still love a IDE like Viusal studio. I'd like to learn some light weight editor or IDE.
-                I think visual studio code might be a good compromise for me. It is a editor &amp; IDE.(kinda of...) Here is my first learning about visual studio code.
-            </p>
-        </article>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">Visual Studio Code</a></span>
-            </li>
-        </ul>
-        <a class="btn btn-blog pull-right marginBottom10" href="~/Tools/VisualStudioCodeView">READ MORE</a>
-    </div>
-    <div class="col-md-12 blogShort">
-
-        <h2>AngularJs and React Basics</h2>
-        <img src="~/Images/Angular_React.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="100" width="200">
-        <article>
-            <p>
-                Trying to find and learn a good front end framework. Looking into Angular &amp; React.
-                After running serval comparsion articles <a href="https://www.airpair.com/angularjs/posts/angular-vs-react-the-tie-breaker">here</a>
-                and <a href="https://smashingboxes.com/blog/choosing-a-front-end-framework-angular-ember-react/">here</a>. I decide to learn both of them.
-                To me, angular wil be used as data binding &amp; and view routings. React will be a UI library for me as it is not a framework.
-                Here is an article talking about the combination. <a href="https://blog.logentries.com/2016/02/combining-angularjs-and-reactjs-for-better-applications/">Using both AngularJs and React</a>.
-                Angular &amp; React will be a set of blogs that records my learrning thre.
-            </p>
-        </article>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">AngularJs &amp; ReactJs</a></span>
-            </li>
-        </ul>
-        <a class="btn btn-blog pull-right marginBottom10" href="~/FrontEnd/AngularJs">READ MORE</a>
-    </div>
-    <div class="col-md-12 blogShort">
-
-        <h2>AngularJs and React Learning</h2>
-        <iframe class="pull-left img-responsive thumb margin10 img-thumbnail" height="150" width="200" src="https://www.youtube.com/embed/i9MHigUZKEM" frameborder="0" allowfullscreen></iframe>
-        <article>
-            <p>
-                Here is good AngularJs Introduction Video from Dan Vahlin. I will add samples <a href="#">here</a> as well. Aslo Dan Wahlin is having a good blog <a href="https://weblogs.asp.net/dwahlin">here</a>.
-            </p>
-        </article>
-        <ul class="list-inline list-unstyled">
-            <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
-
-            <li>|</li>
-            <li>
-                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-                <span><i class="fa fa-facebook-square"></i></span>
-                <span><i class="fa fa-twitter-square"></i></span>
-                <span><i class="fa fa-google-plus-square"></i></span>
-                <span><i class="fa fa-tag"></i><a href="#">AngularJs &amp; ReactJs</a></span>
-            </li>
-        </ul>
-        <a class="btn btn-blog pull-right marginBottom10" href="~/FrontEnd/AngularJs">READ MORE</a>
-    </div>
-</div>
-<div id="blog" class="row col-md-3 leftSideSmallPadding">
-    <div>
-        <h4 style="font:bolder; background-color:lightgray; text-align:center">Update log</h4>
-        @*<div>
-                <header style="text-decoration:underline;font-style:italic">v0.8.01</header>
-                <p>Update the main page. Change the domain name. Add the <a>Visual Studio Code</a></p>
+    <div id="blog" class="row col-md-3 leftSideSmallPadding">
+        <div>
+            <h4 style="font:bolder; background-color:lightgray; text-align:center">Update log</h4>
+            @*<div>
+                    <header style="text-decoration:underline;font-style:italic">v0.8.01</header>
+                    <p>Update the main page. Change the domain name. Add the <a>Visual Studio Code</a></p>
+                </div>
+                <div>
+                    <header style="text-decoration:underline;font-style:italic">v0.8.02</header>
+                    <p>Add the <a>AngularJs and React Basics</a></p>
+                </div>*@
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.021</header>
+                <p>Fix the padding in Chrome. Add git hub link</p>
             </div>
             <div>
-                <header style="text-decoration:underline;font-style:italic">v0.8.02</header>
-                <p>Add the <a>AngularJs and React Basics</a></p>
-            </div>*@
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.021</header>
-            <p>Fix the padding in Chrome. Add git hub link</p>
+                <header style="text-decoration:underline;font-style:italic">v0.8.022</header>
+                <p>Update one learning video</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.023</header>
+                <p>Update Viusal studio cheet sheet &amp; html blog</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.024</header>
+                <p>Update the packages &amp; enlarge the image</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.03</header>
+                <p>Update the angular Js learning.</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.031</header>
+                <p>Enable Christmas version.</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.032</header>
+                <p>Update 2 blogs.</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.033</header>
+                <p>Update comment UI</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.035</header>
+                <p>Update one .net core blog</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.04</header>
+                <p>Enable the comment function.</p>
+            </div>
+
         </div>
         <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.022</header>
-            <p>Update one learning video</p>
-        </div>
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.023</header>
-            <p>Update Viusal studio cheet sheet &amp; html blog</p>
-        </div>
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.024</header>
-            <p>Update the packages &amp; enlarge the image</p>
-        </div>
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.03</header>
-            <p>Update the angular Js learning.</p>
-        </div>
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.031</header>
-            <p>Enable Christmas version.</p>
-        </div>
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.032</header>
-            <p>Update 2 blogs.</p>
-        </div>
-        <div>
-            <header style="text-decoration:underline;font-style:italic">v0.8.033</header>
-            <p>Update comment UI</p>
+            <h4 style="font:bolder; background-color:lightgray; text-align:center">Comming Update</h4>
+            <header style="text-decoration:underline;font-style:italic">v0.8.05</header>
+            <p>Enable the comment function.</p>
+            <header style="text-decoration:underline;font-style:italic">v0.8.06</header>
+            <p>Will take about Azure application Insight</p>
+            <header style="text-decoration:underline;font-style:italic">v0.8.07</header>
+            <p>Enable like vote.</p>
         </div>
 
-    </div>
-    <div>
-        <h4 style="font:bolder; background-color:lightgray; text-align:center">Comming Update</h4>
-        <header style="text-decoration:underline;font-style:italic">v0.8.035</header>
-        <p>Will take about Azure application Insight</p>
-        <header style="text-decoration:underline;font-style:italic">v0.8.036</header>
-        <p>Will take about Azure Function</p>
-        <header style="text-decoration:underline;font-style:italic">v0.8.04</header>
-        <p>Enable the comment function.</p>
-    </div>
+        <div>
+            <h4 style="font:bolder; background-color:lightgray; text-align:center">Known Issues</h4>
+            <p> Visual studio shortcuts only for mac </p>
+        </div>
+        <div>
+            <h4 style="font:bolder; background-color:lightgray; text-align:center">Key Words</h4>
 
-    <div>
-        <h4 style="font:bolder; background-color:lightgray; text-align:center">Known Issues</h4>
-        <p> Visual studio shortcuts only for mac </p>
-    </div>
-    <div>
-        <h4 style="font:bolder; background-color:lightgray; text-align:center">Key Words</h4>
-
-        <p>
-            NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML         NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web
-        </p>
+            <p>
+                NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML         NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web
+            </p>
+        </div>
     </div>
 </div>
