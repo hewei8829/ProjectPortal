@@ -282,11 +282,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Azure\WebRole.cshtml" />
     <Content Include="Views\FrontEnd\AngularJs.cshtml" />
-    <Content Include="Views\FrontEnd\Material.cshtml" />
+    <Content Include="Views\FrontEnd\Others.cshtml" />
     <Content Include="Views\Tools\VisualStudioCodeView.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\FrontEnd\ReactJs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
