@@ -13,6 +13,11 @@ namespace ProjectPortal.Controllers
         {
             return View();
         }
+
+        public ActionResult AzureFunction()
+        {
+            return View();
+        }
     }
 
  

@@ -288,6 +288,7 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\FrontEnd\ReactJs.cshtml" />
+    <Content Include="Views\Azure\AzureFunction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

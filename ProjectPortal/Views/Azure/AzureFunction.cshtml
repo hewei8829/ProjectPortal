@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption caption-green">
+                    <i class="glyphicon glyphicon-knight"></i>
+                    <span class="caption-subject text-uppercase">Azure Function</span>
+                    <span class="caption-helper">Learnings...</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#public_nugget" data-toggle="tab">
+                            public nugget
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#private_nugget" data-toggle="tab">
+                            private nugget
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#dlls" data-toggle="tab">
+                            refer dlls directly
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="public_nugget">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3> How to use public nugget in Azure funciton</h3>
+                                <p> You need to upload a Project.Json into your azure function folder and descript the nugget pacakges you need. Right side is an example.</p>
+                                <p> You can find some discussions <a href="http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions">here</a></p>
+                            </div>
+                            <div class="col-md-8">
+                                <script src="https://gist.github.com/hewei8829/1ebbb59e7fa5c02b5b0d58f96b39da18.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="private_nugget">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3> How to use private nugget in Azure funciton</h3>
+                                <p> In order to use a private nugget pacakge you need a nuget.config file. Example is at right side.</p>
+                                <p> In this nuget.config. You need to specify you nugget pacakge name and path. If this nugget is built in vsft. You need to give the user name and vsts access token.</p>
+                                <p> For whom don't know vsts access token. Please check <a href="https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate">here</a></p>
+                                <p> Please make sure your access token will have the package access scope only.</p>
+                                <p> Upload this file to the azure function folder and edit your Project.json.</p>
+                            </div>
+                            <div class="col-md-8">
+                                <script src="https://gist.github.com/hewei8829/e71f6575fe673de96385c9846ac3614b.js"></script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="dlls">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3> How to directly refer dlls in Azure funciton</h3>
+                                <p> In order to directly refer dlls in Azure function. You need to upload the dlls in to the app plan and refer using #r.</p>
+                                <p> Go back to your function app portal. Find function app settings -> go to Kudu -> using Kudu create a bin folder and copy your dlls into the bin folder.</p>
+                                <p> For whom don't know how to use kudus. Please check <a href="https://github.com/projectkudu/kudu/wiki/Kudu-console">here</a></p>
+                                <p> In your csx code, make a line like #r "path of your dll". Right side is an example.</p>
+                            </div>
+                            <div class="col-md-8">
+                                <script src="https://gist.github.com/hewei8829/ad11d0c503acbeb2bce40e97e198b08a.js"></script>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
