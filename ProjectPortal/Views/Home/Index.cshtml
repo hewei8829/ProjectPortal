@@ -96,6 +96,39 @@
             @*<a class="btn btn-blog pull-right marginBottom10" href="#">READ MORE</a>*@
         </div>
         <div class="col-md-12 blogShort">
+            <h2>  Azure function</h2>
+            <article>
+                <p>Let's talk about Azure function.</p>
+                <p> Azure function is a pretty new Serivce. THe general availability is Nov 15, 2016. You can check it here <a href="https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-azure-functions/">here</a>  </p>
+                <ul>
+                    <li> 
+                        <h4>Why we need azure function?</h4>
+                        <p>To me if you want to run a small piece of code using C#,Node.js or Phython as a script. It is good and cheap way to do.</p>
+                        <h4>How it performed?</h4>
+                        <p>It actually surprised me that azure function has a very good performance and scale. I have done a performance test for it. The overall delay is within 10ms using http trigger when request comes from same data region data center.  I don’t see any bottle neck with over 30 threads requests and over 200k request in 10 mins. </p>
+                        <h4>How to write an azure function?</h4>
+                        <p>You can use the tools in the portal. Or you can use Azure .net 2.9.6 SDK <a href="https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/"> here</a>which contains a preview azure function SDK. You can use Viusal studio code as well if you are writing Phyton code. I am trying to find a way to write csx file in Visual studio code at this time. If I have a solution. I will make another update.</p>
+                        <h4>How about nuggets?</h4>
+                        <p>You can add public nuggets using a seperate project.json file. If you want to use some internal nugget pacakges or dlls. You can check my blog <a href="#">here. </a></p>
+                    </li>
+                </ul>
+
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>01/14/2017</span></li>
+                <li>|</li>
+
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">azure funciton</a></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-12 blogShort">
             <h2> Comment is enabled now :)</h2>
             <article>
               <p> I got my comment function enabled :). Backend is using .net web api. For detail api information, you can check <a href="http://weiheblogservice.azurewebsites.net/swagger/ui/index#/Comments">here</a>. Please don't try to hack this. It it not protected by any authentication method yet. </p>
