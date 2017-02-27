@@ -27,13 +27,13 @@
             <h1>Welcome back!</h1>
             <article>
                 <p>
-                    I changed my personal website from www.weihecareer.com to <a href="http://www.weiheblog.com">www.weiheblog.com</a>. I will constantly update this website from now. Hopefully update at least 2 times a week.
+                    I changed my personal website from www.weihecareer.com to <a href="http://www.weiheblog.com">www.weiheblog.com</a>. I will constantly update this website from now. I was too busy because of the new project in last one month. Finally, I got a chance to update.
                 </p>
             </article>
             <ul class="list-inline list-unstyled">
                 <li><span><i class="glyphicon glyphicon-calendar"></i>12/17/2016</span></li>
                 <li>|</li>
-                <li><a href="#" id="blog1_comment_tag"><i class="glyphicon glyphicon-comment"></i> {{numberOfCommnets}} comments</a></li>
+                <li><a href="#" id="blog1_comment_tag">click here to open  <i class="glyphicon glyphicon-comment"></i> {{numberOfCommnets}} comments</a></li>
 
                 <li>|</li>
                 <li>
@@ -95,6 +95,85 @@
 
             @*<a class="btn btn-blog pull-right marginBottom10" href="#">READ MORE</a>*@
         </div>
+        <div class="col-md-12 blogShort">
+            <h2>New section! Learn more about A.I.</h2>
+            <article>
+                <p> Every people is talking about Artificial Intelligence, Big Data, Depp Learning. But what exactly is that? I don't have a good answer as well. That's why I am trying to learn from beginning.</p>
+                <p> I will try to get and read more resouces, articles. After I have a better understanding. I will build my own sample project for what I have learnt. </p>
+                <p> This first post, I will create the page and share a list of papers talking about deeping learning. Hope everyone enjoys.</p>
+                <a class="btn btn-blog pull-right marginBottom10" href="~/AI/Readings">READ MORE</a>
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>02/26/2017</span></li>
+                <li>|</li>
+
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="~/AI/Readings">A.I.</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+            <h2>How to use nugget or dlls in azure function</h2>
+            <article>
+                <p> This blog will tell you 3 ways to refer dlls.</p>
+                <ul>
+                    <li>1. Refer public nugget packages.</li>
+                    <li>2. Refer some internal nugget packages. For example viusal studio team service packages.</li>
+                    <li>3. Refer dlls directly.</li>
+                </ul>
+                <a class="btn btn-blog pull-right marginBottom10" href="~/Azure/AzureFunction">READ MORE</a>
+
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>01/14/2017</span></li>
+                <li>|</li>
+
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">azure funciton</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 blogShort">
+            <h2>  Azure function</h2>
+            <article>
+                <p>Let's talk about Azure function.</p>
+                <p> Azure function is a pretty new Serivce. THe general availability is Nov 15, 2016. You can check it here <a href="https://azure.microsoft.com/en-us/blog/announcing-general-availability-of-azure-functions/">here</a>  </p>
+                <ul>
+                    <li> 
+                        <h4>Why we need azure function?</h4>
+                        <p>To me if you want to run a small piece of code using C#,Node.js or Phython as a script. It is good and cheap way to do.</p>
+                        <h4>How it performed?</h4>
+                        <p>It actually surprised me that azure function has a very good performance and scale. I have done a performance test for it. The overall delay is within 10ms using http trigger when request comes from same data region data center.  I don’t see any bottle neck with over 30 threads requests and over 200k request in 10 mins. </p>
+                        <h4>How to write an azure function?</h4>
+                        <p>You can use the tools in the portal. Or you can use Azure .net 2.9.6 SDK <a href="https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/"> here</a>which contains a preview azure function SDK. You can use Viusal studio code as well if you are writing Phyton code. I am trying to find a way to write csx file in Visual studio code at this time. If I have a solution. I will make another update.</p>
+                        <h4>How about nuggets?</h4>
+                        <p>You can add public nuggets using a seperate project.json file. If you want to use some internal nugget pacakges or dlls. You can check my blog <a href="#">here. </a></p>
+                    </li>
+                </ul>
+
+            </article>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i>01/14/2017</span></li>
+                <li>|</li>
+
+                <li>
+                    <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                    <span><i class="fa fa-facebook-square"></i></span>
+                    <span><i class="fa fa-twitter-square"></i></span>
+                    <span><i class="fa fa-google-plus-square"></i></span>
+                    <span><i class="fa fa-tag"></i><a href="#">azure funciton</a></span>
+                </li>
+            </ul>
+        </div>
+
         <div class="col-md-12 blogShort">
             <h2> Comment is enabled now :)</h2>
             <article>
@@ -349,6 +428,10 @@
                     <p>Add the <a>AngularJs and React Basics</a></p>
                 </div>*@
             <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.07</header>
+                <p>Add a A.I. Section</p>
+            </div>
+            <div>
                 <header style="text-decoration:underline;font-style:italic">v0.8.021</header>
                 <p>Fix the padding in Chrome. Add git hub link</p>
             </div>
@@ -389,14 +472,21 @@
                 <p>Enable the comment function.</p>
             </div>
 
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.05</header>
+                <p>Azure function Overview</p>
+            </div>
+            <div>
+                <header style="text-decoration:underline;font-style:italic">v0.8.06</header>
+                <p>Azure function nuggets and dlls</p>
+            </div>
+
         </div>
         <div>
             <h4 style="font:bolder; background-color:lightgray; text-align:center">Comming Update</h4>
-            <header style="text-decoration:underline;font-style:italic">v0.8.05</header>
-            <p>Enable the comment function.</p>
-            <header style="text-decoration:underline;font-style:italic">v0.8.06</header>
+            <header style="text-decoration:underline;font-style:italic">v0.8.10</header>
             <p>Will take about Azure application Insight</p>
-            <header style="text-decoration:underline;font-style:italic">v0.8.07</header>
+            <header style="text-decoration:underline;font-style:italic">v0.8.20</header>
             <p>Enable like vote.</p>
         </div>
 
@@ -408,7 +498,7 @@
             <h4 style="font:bolder; background-color:lightgray; text-align:center">Key Words</h4>
 
             <p>
-                NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML         NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web
+                A.I. Deep Learning Azure function NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML         NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web Windows WPF XAML XML .NET Services ActiveDirectory AngularJS Animations Microsoft ASP.NET MVC ASP.NET Web API Azure C# Cloud CSS CSS  Queries Design Patterns Entity Framework IISExpress images China Java JavaScript jQuery jQuery Mobile JSON Lambdas LINQ MVC MVVM Node.js programming Razor REST SQL Server Unit Tests Visual Studio WCF Web Services Web
             </p>
         </div>
     </div>

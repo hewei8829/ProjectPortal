@@ -13,7 +13,12 @@ namespace ProjectPortal.Controllers
             return View();
         }
 
-        public ActionResult Material()
+        public ActionResult Others()
+        {
+            return View();
+        }
+
+        public ActionResult ReactJs()
         {
             return View();
         }
