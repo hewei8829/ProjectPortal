@@ -261,6 +261,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AIController.cs" />
     <Compile Include="Controllers\AzureController.cs" />
     <Compile Include="Controllers\FrontEndController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -289,6 +290,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\FrontEnd\ReactJs.cshtml" />
     <Content Include="Views\Azure\AzureFunction.cshtml" />
+    <Content Include="Views\AI\Readings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
